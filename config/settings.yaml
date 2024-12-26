@@ -72,3 +72,4 @@ imap_settings:
   gmx.de: imap.gmx.net               # GMX Germany - Alternative
   onet.pl: imap.poczta.onet.pl       # Onet - Polish service
   onet.com.pl: imap.poczta.onet.pl   # Onet - Alternative domain
+  gmx.ch: imap.gmx.ch
