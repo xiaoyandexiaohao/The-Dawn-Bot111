@@ -9,7 +9,7 @@
 # ==================
 # Essential application parameters that control basic functionality
 
-threads: 30                    # Number of worker threads for concurrent operations
+threads: 50                    # Number of worker threads for concurrent operations
                               # Minimum: 1, Recommended: 10-50 based on system resources
 
 keepalive_interval: 120       # Keepalive signal frequency in seconds
