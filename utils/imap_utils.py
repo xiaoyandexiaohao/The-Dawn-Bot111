@@ -155,7 +155,7 @@ class LinkExtractor:
             imap_server: str,
             email: str,
             password: str,
-            max_attempts: int = 8,
+            max_attempts: int = 1,
             delay_seconds: int = 5,
     ):
         self.imap_server = imap_server
@@ -163,7 +163,11 @@ class LinkExtractor:
         self.password = password
         self.max_attempts = max_attempts
         self.delay_seconds = delay_seconds
-        self.link_pattern = r"https://www\.aeropres\.in/chromeapi/dawn/v1/user/verifylink\?key=[a-f0-9-]+" if mode == "verify" else r"https://u31952478\.ct\.sendgrid\.net/ls/click\?upn=.+?(?=><button|\"|\s|$)"
+        self.link_pattern = (
+            r"https://www\.aeropres\.in/chromeapi/dawn/v1/user/verifylink\?key=[a-f0-9-]+" 
+            if mode == "verify" 
+            else r"https:\/\/u31952478\.ct\.sendgrid\.net\/ls\/click\?upn=[\w\-\.]+(?:&[\w\-\.]+=[\w\-\.]+)*"
+       )
 
     async def extract_link(self, proxy: Optional[Proxy] = None) -> OperationResult:
         logger.info(f"Account: {self.email} | Checking email for link...")
@@ -289,7 +293,7 @@ class LinkExtractor:
         return None
 
     async def _search_spam_folders(self, proxy: Optional[Proxy]) -> Optional[str]:
-        spam_folders = ("SPAM", "Spam", "spam", "Junk", "junk")
+        spam_folders = ("SPAM", "Spam", "spam", "Junk", "Spamverdacht")
 
         def search_in_spam():
             with MailBoxClient(
