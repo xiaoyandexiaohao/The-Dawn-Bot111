@@ -23,7 +23,7 @@ class Bot(DawnExtensionAPI):
                 image = await self.get_puzzle_image(puzzle_id)
 
                 logger.info(
-                    f"Account: {self.account_data.email} | Got puzzle image, solving..."
+                    f"Account: {self.account_data.email} | 正在解码中..."
                 )
                 answer, solved, *rest = await self.solve_puzzle(image)
 
