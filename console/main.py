@@ -18,20 +18,20 @@ sys.path.append(os.path.realpath("."))
 
 class Console:
     MODULES = (
-        "Register",
-        "Farm",
-        "Complete tasks",
-        "Re-verify accounts",
-        "Export statistics",
-        "Exit",
+        "注册",
+        "积分",
+        "任务完成",
+        "重新验证",
+        "导出数据",
+        "退出",
     )
     MODULES_DATA = {
-        "Register": "register",
-        "Farm": "farm",
-        "Exit": "exit",
-        "Export statistics": "export_stats",
-        "Complete tasks": "complete_tasks",
-        "Re-verify accounts": "re_verify_accounts",
+        "注册": "register",
+        "积分": "farm",
+        "退出": "exit",
+        "导出数据": "export_stats",
+        "任务完成": "complete_tasks",
+        "重新验证": "re_verify_accounts",
     }
 
     def __init__(self):
